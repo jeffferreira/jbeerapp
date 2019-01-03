@@ -1,0 +1,33 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "br.com.ferreira"
+        },
+        "jhipsterVersion": "5.7.2",
+        "applicationType": "monolith",
+        "baseName": "jbeerapp",
+        "packageName": "br.com.ferreira",
+        "packageFolder": "br/com/ferreira",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "mysql",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "ZGM4ZWY3NGUzM2I4NDRjNjdkNzcxNGVjOTA0MWE2MDJhYzdiYjQ4MjcxYzM2N2MwMWJhMTFkN2VlNGZiNzc2MjJlN2Q3ZjVkNGQxNTQ1ZjVhYTVlMGY2MzE2MTkyYjE2ZGFlYzhlZDgwNjE2Yjk0MzkwOTU1Nzg1YWU1NTJjZGE=",
+        "clientFramework": "angularX",
+        "useSass": false,
+        "clientPackageManager": "npm",
+        "testFrameworks": ["gatling"],
+        "jhiPrefix": "jhi",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
