@@ -1,0 +1,80 @@
+
+entity Recipe {
+	name String,
+    type String,
+    brewer String,
+    batchSize BigDecimal,
+    boilSize BigDecimal,
+    boilTime BigDecimal,
+    eficiency BigDecimal,
+    date Instant,
+    ibu String,
+    estAbv String,
+    displayBatchSize String,
+    displayOg String,
+    displayFg String
+}
+
+entity Hop {
+	name String,
+    origin String,
+    alpha BigDecimal,
+    amount BigDecimal,
+    use String,
+    time BigDecimal,
+    displayTime String,
+    displayAmount String
+}
+
+entity Fermentable {
+	name String,
+    type String,
+    amount BigDecimal,
+    origin String,
+    supplier String,
+    displayAmount String
+}
+
+entity Yeast{
+	name String,
+    type String,
+    laboratory String,
+    productId String
+}
+
+entity Style {
+	name String,
+    category String,
+    type String
+}
+
+entity MashStep {
+	name String,
+    type String,
+    stepTime BigDecimal,
+    stepTemp BigDecimal,
+    description String,
+    infuseTemp String,
+    displayStepTemp String,
+    displayInfuseAmt String
+}
+
+entity Mash {
+	name String,
+    ph BigDecimal
+}
+
+relationship ManyToOne {
+	Hop{recipe} to Recipe,
+    Fermentable{fermentable} to Recipe,
+    Yeast{yeast} to Recipe,
+    Recipe{style} to Style,
+    MashStep{mashStep} to Mash,
+    Recipe{mash} to Mash,
+}
+
+
+
+
+
+    
