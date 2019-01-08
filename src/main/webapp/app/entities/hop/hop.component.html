@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span>Hops</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hop" [routerLink]="['/hop/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Hop
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="hops">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Origin</span></th>
+            <th><span>Alpha</span></th>
+            <th><span>Amount</span></th>
+            <th><span>Use</span></th>
+            <th><span>Time</span></th>
+            <th><span>Display Time</span></th>
+            <th><span>Display Amount</span></th>
+            <th><span>Recipe</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hop of hops ;trackBy: trackId">
+                <td><a [routerLink]="['/hop', hop.id, 'view' ]">{{hop.id}}</a></td>
+                <td>{{hop.name}}</td>
+                <td>{{hop.origin}}</td>
+                <td>{{hop.alpha}}</td>
+                <td>{{hop.amount}}</td>
+                <td>{{hop.use}}</td>
+                <td>{{hop.time}}</td>
+                <td>{{hop.displayTime}}</td>
+                <td>{{hop.displayAmount}}</td>
+                <td>
+                    <div *ngIf="hop.recipe">
+                        <a [routerLink]="['../recipe', hop.recipe?.id, 'view' ]" >{{hop.recipe?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/hop', hop.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/hop', hop.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'hop/'+ hop.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -5,6 +5,18 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133704_added_entity_Recipe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133705_added_entity_Hop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133706_added_entity_Fermentable.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133707_added_entity_Yeast.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133708_added_entity_Style.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133709_added_entity_Mash.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133710_added_entity_MashStep.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190103133704_added_entity_constraints_Recipe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133705_added_entity_constraints_Hop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133706_added_entity_constraints_Fermentable.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133707_added_entity_constraints_Yeast.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190103133710_added_entity_constraints_MashStep.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

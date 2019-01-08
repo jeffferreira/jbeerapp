@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hop">
+            <h2><span>Hop</span> {{hop.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{hop.name}}</span>
+                </dd>
+                <dt><span>Origin</span></dt>
+                <dd>
+                    <span>{{hop.origin}}</span>
+                </dd>
+                <dt><span>Alpha</span></dt>
+                <dd>
+                    <span>{{hop.alpha}}</span>
+                </dd>
+                <dt><span>Amount</span></dt>
+                <dd>
+                    <span>{{hop.amount}}</span>
+                </dd>
+                <dt><span>Use</span></dt>
+                <dd>
+                    <span>{{hop.use}}</span>
+                </dd>
+                <dt><span>Time</span></dt>
+                <dd>
+                    <span>{{hop.time}}</span>
+                </dd>
+                <dt><span>Display Time</span></dt>
+                <dd>
+                    <span>{{hop.displayTime}}</span>
+                </dd>
+                <dt><span>Display Amount</span></dt>
+                <dd>
+                    <span>{{hop.displayAmount}}</span>
+                </dd>
+                <dt><span>Recipe</span></dt>
+                <dd>
+                    <div *ngIf="hop.recipe">
+                        <a [routerLink]="['/recipe', hop.recipe?.id, 'view']">{{hop.recipe?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hop', hop.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

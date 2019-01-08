@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-recipe-heading">Create or edit a Recipe</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!recipe.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="recipe.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="recipe.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="recipe.type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_brewer">Brewer</label>
+                    <input type="text" class="form-control" name="brewer" id="field_brewer"
+                        [(ngModel)]="recipe.brewer" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_batchSize">Batch Size</label>
+                    <input type="number" class="form-control" name="batchSize" id="field_batchSize"
+                        [(ngModel)]="recipe.batchSize" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_boilSize">Boil Size</label>
+                    <input type="number" class="form-control" name="boilSize" id="field_boilSize"
+                        [(ngModel)]="recipe.boilSize" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_boilTime">Boil Time</label>
+                    <input type="number" class="form-control" name="boilTime" id="field_boilTime"
+                        [(ngModel)]="recipe.boilTime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_eficiency">Eficiency</label>
+                    <input type="number" class="form-control" name="eficiency" id="field_eficiency"
+                        [(ngModel)]="recipe.eficiency" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="date"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ibu">Ibu</label>
+                    <input type="text" class="form-control" name="ibu" id="field_ibu"
+                        [(ngModel)]="recipe.ibu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_estAbv">Est Abv</label>
+                    <input type="text" class="form-control" name="estAbv" id="field_estAbv"
+                        [(ngModel)]="recipe.estAbv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayBatchSize">Display Batch Size</label>
+                    <input type="text" class="form-control" name="displayBatchSize" id="field_displayBatchSize"
+                        [(ngModel)]="recipe.displayBatchSize" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayOg">Display Og</label>
+                    <input type="text" class="form-control" name="displayOg" id="field_displayOg"
+                        [(ngModel)]="recipe.displayOg" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayFg">Display Fg</label>
+                    <input type="text" class="form-control" name="displayFg" id="field_displayFg"
+                        [(ngModel)]="recipe.displayFg" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mash">Mash</label>
+                    <select class="form-control" id="field_mash" name="mash" [(ngModel)]="recipe.mash">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mashOption.id === recipe.mash?.id ? recipe.mash : mashOption" *ngFor="let mashOption of mashes; trackBy: trackMashById">{{mashOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_style">Style</label>
+                    <select class="form-control" id="field_style" name="style" [(ngModel)]="recipe.style" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="styleOption.id === recipe.style?.id ? recipe.style : styleOption" *ngFor="let styleOption of styles; trackBy: trackStyleById">{{styleOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+{
+    "name": "MashStep",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stepTime",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "stepTemp",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "infuseTemp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "displayStepTemp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "displayInfuseAmt",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mashStep",
+            "otherEntityName": "mash",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190103133710",
+    "entityTableName": "mash_step",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

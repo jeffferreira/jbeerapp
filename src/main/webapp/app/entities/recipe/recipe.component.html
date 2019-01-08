@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span>Recipes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-recipe" [routerLink]="['/recipe/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Recipe
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="recipes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Type</span></th>
+            <th><span>Brewer</span></th>
+            <th><span>Batch Size</span></th>
+            <th><span>Boil Size</span></th>
+            <th><span>Boil Time</span></th>
+            <th><span>Eficiency</span></th>
+            <th><span>Date</span></th>
+            <th><span>Ibu</span></th>
+            <th><span>Est Abv</span></th>
+            <th><span>Display Batch Size</span></th>
+            <th><span>Display Og</span></th>
+            <th><span>Display Fg</span></th>
+            <th><span>Mash</span></th>
+            <th><span>Style</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let recipe of recipes ;trackBy: trackId">
+                <td><a [routerLink]="['/recipe', recipe.id, 'view' ]">{{recipe.id}}</a></td>
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.type}}</td>
+                <td>{{recipe.brewer}}</td>
+                <td>{{recipe.batchSize}}</td>
+                <td>{{recipe.boilSize}}</td>
+                <td>{{recipe.boilTime}}</td>
+                <td>{{recipe.eficiency}}</td>
+                <td>{{recipe.date | date:'medium'}}</td>
+                <td>{{recipe.ibu}}</td>
+                <td>{{recipe.estAbv}}</td>
+                <td>{{recipe.displayBatchSize}}</td>
+                <td>{{recipe.displayOg}}</td>
+                <td>{{recipe.displayFg}}</td>
+                <td>
+                    <div *ngIf="recipe.mash">
+                        <a [routerLink]="['../mash', recipe.mash?.id, 'view' ]" >{{recipe.mash?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="recipe.style">
+                        <a [routerLink]="['../style', recipe.style?.id, 'view' ]" >{{recipe.style?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/recipe', recipe.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/recipe', recipe.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'recipe/'+ recipe.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

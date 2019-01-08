@@ -48,6 +48,11 @@ entity Style {
     type String
 }
 
+entity Mash {
+	name String,
+    ph BigDecimal
+}
+
 entity MashStep {
 	name String,
     type String,
@@ -59,22 +64,19 @@ entity MashStep {
     displayInfuseAmt String
 }
 
-entity Mash {
-	name String,
-    ph BigDecimal
-}
-
 relationship ManyToOne {
 	Hop{recipe} to Recipe,
     Fermentable{fermentable} to Recipe,
     Yeast{yeast} to Recipe,
     Recipe{style} to Style,
-    MashStep{mashStep} to Mash,
-    Recipe{mash} to Mash,
+    MashStep{mashStep} to Mash
+}
+
+relationship OneToOne {
+    Recipe{mash} to Mash
 }
 
 
 
 
 
-    

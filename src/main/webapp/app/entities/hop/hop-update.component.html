@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hop-heading">Create or edit a Hop</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hop.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hop.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="hop.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_origin">Origin</label>
+                    <input type="text" class="form-control" name="origin" id="field_origin"
+                        [(ngModel)]="hop.origin" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_alpha">Alpha</label>
+                    <input type="number" class="form-control" name="alpha" id="field_alpha"
+                        [(ngModel)]="hop.alpha" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="hop.amount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_use">Use</label>
+                    <input type="text" class="form-control" name="use" id="field_use"
+                        [(ngModel)]="hop.use" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_time">Time</label>
+                    <input type="number" class="form-control" name="time" id="field_time"
+                        [(ngModel)]="hop.time" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayTime">Display Time</label>
+                    <input type="text" class="form-control" name="displayTime" id="field_displayTime"
+                        [(ngModel)]="hop.displayTime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayAmount">Display Amount</label>
+                    <input type="text" class="form-control" name="displayAmount" id="field_displayAmount"
+                        [(ngModel)]="hop.displayAmount" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_recipe">Recipe</label>
+                    <select class="form-control" id="field_recipe" name="recipe" [(ngModel)]="hop.recipe" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recipeOption.id === hop.recipe?.id ? hop.recipe : recipeOption" *ngFor="let recipeOption of recipes; trackBy: trackRecipeById">{{recipeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

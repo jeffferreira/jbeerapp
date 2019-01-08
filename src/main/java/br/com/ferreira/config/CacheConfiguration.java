@@ -38,6 +38,13 @@ public class CacheConfiguration {
             cm.createCache(br.com.ferreira.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.ferreira.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.ferreira.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(br.com.ferreira.domain.Recipe.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.ferreira.domain.Hop.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.ferreira.domain.Fermentable.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.ferreira.domain.Yeast.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.ferreira.domain.Style.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.ferreira.domain.Mash.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.ferreira.domain.MashStep.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

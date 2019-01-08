@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-mash-step-heading">Create or edit a Mash Step</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mashStep.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="mashStep.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="mashStep.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="mashStep.type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stepTime">Step Time</label>
+                    <input type="number" class="form-control" name="stepTime" id="field_stepTime"
+                        [(ngModel)]="mashStep.stepTime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stepTemp">Step Temp</label>
+                    <input type="number" class="form-control" name="stepTemp" id="field_stepTemp"
+                        [(ngModel)]="mashStep.stepTemp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="mashStep.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_infuseTemp">Infuse Temp</label>
+                    <input type="text" class="form-control" name="infuseTemp" id="field_infuseTemp"
+                        [(ngModel)]="mashStep.infuseTemp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayStepTemp">Display Step Temp</label>
+                    <input type="text" class="form-control" name="displayStepTemp" id="field_displayStepTemp"
+                        [(ngModel)]="mashStep.displayStepTemp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayInfuseAmt">Display Infuse Amt</label>
+                    <input type="text" class="form-control" name="displayInfuseAmt" id="field_displayInfuseAmt"
+                        [(ngModel)]="mashStep.displayInfuseAmt" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mashStep">Mash Step</label>
+                    <select class="form-control" id="field_mashStep" name="mashStep" [(ngModel)]="mashStep.mashStep" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mashOption.id === mashStep.mashStep?.id ? mashStep.mashStep : mashOption" *ngFor="let mashOption of mashes; trackBy: trackMashById">{{mashOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

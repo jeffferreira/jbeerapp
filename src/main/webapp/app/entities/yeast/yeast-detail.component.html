@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="yeast">
+            <h2><span>Yeast</span> {{yeast.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{yeast.name}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{yeast.type}}</span>
+                </dd>
+                <dt><span>Laboratory</span></dt>
+                <dd>
+                    <span>{{yeast.laboratory}}</span>
+                </dd>
+                <dt><span>Product Id</span></dt>
+                <dd>
+                    <span>{{yeast.productId}}</span>
+                </dd>
+                <dt><span>Yeast</span></dt>
+                <dd>
+                    <div *ngIf="yeast.yeast">
+                        <a [routerLink]="['/recipe', yeast.yeast?.id, 'view']">{{yeast.yeast?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/yeast', yeast.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

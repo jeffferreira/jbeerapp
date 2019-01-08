@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span>Mash Steps</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mash-step" [routerLink]="['/mash-step/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Mash Step
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="mashSteps">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Type</span></th>
+            <th><span>Step Time</span></th>
+            <th><span>Step Temp</span></th>
+            <th><span>Description</span></th>
+            <th><span>Infuse Temp</span></th>
+            <th><span>Display Step Temp</span></th>
+            <th><span>Display Infuse Amt</span></th>
+            <th><span>Mash Step</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mashStep of mashSteps ;trackBy: trackId">
+                <td><a [routerLink]="['/mash-step', mashStep.id, 'view' ]">{{mashStep.id}}</a></td>
+                <td>{{mashStep.name}}</td>
+                <td>{{mashStep.type}}</td>
+                <td>{{mashStep.stepTime}}</td>
+                <td>{{mashStep.stepTemp}}</td>
+                <td>{{mashStep.description}}</td>
+                <td>{{mashStep.infuseTemp}}</td>
+                <td>{{mashStep.displayStepTemp}}</td>
+                <td>{{mashStep.displayInfuseAmt}}</td>
+                <td>
+                    <div *ngIf="mashStep.mashStep">
+                        <a [routerLink]="['../mash', mashStep.mashStep?.id, 'view' ]" >{{mashStep.mashStep?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/mash-step', mashStep.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/mash-step', mashStep.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mash-step/'+ mashStep.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

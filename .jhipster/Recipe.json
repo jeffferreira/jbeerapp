@@ -1,0 +1,82 @@
+{
+    "name": "Recipe",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "brewer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "batchSize",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "boilSize",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "boilTime",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "eficiency",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "ibu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estAbv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "displayBatchSize",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "displayOg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "displayFg",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mash",
+            "otherEntityName": "mash",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "recipe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "style",
+            "otherEntityName": "style",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190103133704",
+    "entityTableName": "recipe",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
